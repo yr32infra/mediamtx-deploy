@@ -12,7 +12,7 @@ authInternalUsers:
         path: sakiria
 
   - user: sakiria
-    pass: $argon2id$v=19$m=4096,t=3,p=1$c2FsdEl0V2l0aFNhbHQ$yzknF0vVT+ce6xSjFIJQyHY6nTu/9mbkvaKEBWwkxfs
+    pass: argon2:$argon2id$v=19$m=4096,t=3,p=1$c2FsdEl0V2l0aFNhbHQ$yzknF0vVT+ce6xSjFIJQyHY6nTu/9mbkvaKEBWwkxfs
     permissions:
       - action: publish
         path: sakiria
