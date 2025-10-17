@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:1.15.2@sha256:0d5896013461cb8fd8481b1cece162e7a7af82398aba2f6924f7c7a2bad1924b
+    hostname: mediamtx
+    container_name: mediamtx__mediamtx
+    restart: unless-stopped
+
+    ports:
+      - 1935:1935
+
+    volumes:
+      - type: bind
+        source: ./mediamtx.yml
+        target: /mediamtx.yml
+        read_only: true
+
+    networks:
+      - default
+
+  cloudflared:
+    image: cloudflare/cloudflared:2025.9.1-amd64@sha256:e0d01332894a8adb2d55242f0e6cd28701722dbb7555523abac2f9cf39c22744
+    hostname: cloudflared
+    container_name: mediamtx__cloudflared
+    restart: unless-stopped
+
+    environment:
+      TUNNEL_METRICS: 0.0.0.0:9126
+      TUNNEL_LOGFILE: /dev/stdout
+
+    command: tunnel run --token ${TUNNEL_TOKEN}
+    user: root
+
+    networks:
+      default:
+
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+networks:
+  default:
+    name: mediamtx__default
