@@ -1,6 +1,6 @@
 hls: yes
 rtmp: yes
-rtsp: no
+rtsp: yes
 webrtc: no
 srt: no
 
