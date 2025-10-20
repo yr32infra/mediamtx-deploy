@@ -19,6 +19,11 @@ services:
     networks:
       - default
 
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
   cloudflared:
     image: cloudflare/cloudflared:2025.10.0-amd64@sha256:de377b1bb1cb9298fe7153171bc60180e5cda167dc14217d82860571e6053530
     hostname: cloudflared
