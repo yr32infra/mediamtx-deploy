@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   mediamtx:
-    image: bluenviron/mediamtx:1.15.5@sha256:59aaad04627c7c8f40ceb01a5ff1c43f91e01939da147c3419f1aaa0c78d6cf5
+    image: bluenviron/mediamtx:1.16.1@sha256:601952da6a9bcc6e833675d86eb177a05403e29f95810d36dbcefceb45c7e3f4
     hostname: mediamtx
     container_name: mediamtx__mediamtx
     restart: unless-stopped
